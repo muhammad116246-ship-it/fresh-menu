@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Fast Food - NFS Menyusi</title>
+    <!-- NFS stili uchun poyga va neon uslubidagi shriftlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0c10;
+            background-image:
+            radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.15), transparent 60%),
+            linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+            color: #fff;
+            font-family: 'Teko', sans-serif;
+            padding: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Sarlavha qismi */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            transform: skewX(-10deg);
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 40px #ff0055;
+            letter-spacing: 3px;
+        }
+
+        .header p {
+            font-size: 1.8rem;
+            color: #00f0ff;
+            text-shadow: 0 0 10px #00f0ff;
+        }
+
+        /* Menyular tarmog'i */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* NFS uslubidagi bloklar */
+        .card {
+            background: rgba(20, 24, 33, 0.85);
+            border: 2px solid #ff0055;
+            border-left: 6px solid #00f0ff;
+            padding: 15px;
+            transform: skewX(-6deg);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: skewX(-6deg) scale(1.03);
+            border-color: #00f0ff;
+            border-left-color: #ff0055;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+            background: rgba(30, 36, 50, 0.95);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            background: linear-gradient(90deg, #ff0055, transparent);
+            padding: 5px 10px;
+            margin-bottom: 12px;
+            clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+        }
+
+        .item-list {
+            list-style: none;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            color: #e0e0e0;
+        }
+
+        .item-price {
+            color: #00f0ff;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px #00f0ff;
+        }
+
+        /* Set (To'plam) kartochkalari */
+        .card.set-card {
+            border-color: #ffbd00;
+            border-left-color: #ff0055;
+        }
+
+        .card.set-card .card-title {
+            background: linear-gradient(90deg, #ffbd00, transparent);
+            color: #000;
+        }
+
+        .card.set-card .item-price {
+            color: #ffbd00;
+            text-shadow: 0 0 5px #ffbd00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>FRESH FAST FOOD</h1>
+        <p>
+            NEED FOR SPEED EDITION
+        </p>
+    </div>
+
+    <div class="menu-container">
+
+        <!-- SALATLI HOT-DOG -->
+        <div class="card">
+            <div class="card-title">
+                SALATLI HOT-DOG
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Kichik</span><span class="item-price">15,000</span></li>
+                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">20,000</span></li>
+                <li class="item"><span class="item-name">Katta (Big)</span><span class="item-price">30,000</span></li>
+            </ul>
+        </div>
+
+        <!-- TOVUQLI HOT-DOG -->
+        <div class="card">
+            <div class="card-title">
+                TOVUQLI HOT-DOG
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Kichik</span><span class="item-price">25,000</span></li>
+                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">35,000</span></li>
+            </ul>
+        </div>
+
+        <!-- GO'SHTLI HOT-DOG -->
+        <div class="card">
+            <div class="card-title">
+                GO'SHTLI HOT-DOG
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Kichik</span><span class="item-price">20,000</span></li>
+                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">25,000</span></li>
+                <li class="item"><span class="item-name">Katta (Big)</span><span class="item-price">35,000</span></li>
+            </ul>
+        </div>
+
+        <!-- DONAR -->
+        <div class="card">
+            <div class="card-title">
+                DONAR
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Oddiy</span><span class="item-price">30,000</span></li>
+                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">35,000</span></li>
+            </ul>
+        </div>
+
+        <!-- XAGGI -->
+        <div class="card">
+            <div class="card-title">
+                XAGGI
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Oddiy</span><span class="item-price">40,000</span></li>
+            </ul>
+        </div>
+
+        <!-- BURGERLAR -->
+        <div class="card">
+            <div class="card-title">
+                GAMBURGERLAR
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Gamburger</span><span class="item-price">30,000</span></li>
+                <li class="item"><span class="item-name">Dabl Gamburger</span><span class="item-price">40,000</span></li>
+                <li class="item"><span class="item-name">Chizburger</span><span class="item-price">35,000</span></li>
+                <li class="item"><span class="item-name">Dabl Chizburger</span><span class="item-price">45,000</span></li>
+            </ul>
+        </div>
+
+        <!-- GO'SHTLI LAVASH -->
+        <div class="card">
+            <div class="card-title">
+                GO'SHTLI LAVASH
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Mini Go'shtli</span><span class="item-price">30,000</span></li>
+                <li class="item"><span class="item-name">Big Go'shtli</span><span class="item-price">35,000</span></li>
+                <li class="item"><span class="item-name">Mini Pishloqli</span><span class="item-price">35,000</span></li>
+                <li class="item"><span class="item-name">Big Pishloqli</span><span class="item-price">40,000</span></li>
+            </ul>
+        </div>
+
+        <!-- TOVUQLI LAVASH -->
+        <div class="card">
+            <div class="card-title">
+                TOVUQLI LAVASH
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Mini Tovuqli</span><span class="item-price">30,000</span></li>
+                <li class="item"><span class="item-name">Big Tovuqli</span><span class="item-price">35,000</span></li>
+            </ul>
+        </div>
+
+        <!-- KLAB SENDVICH -->
+        <div class="card">
+            <div class="card-title">
+                KLAB SENDVICH
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Oddiy</span><span class="item-price">38,000</span></li>
+            </ul>
+        </div>
+
+        <!-- ICHIMLIKLAR VA FRI -->
+        <div class="card">
+            <div class="card-title">
+                ICHIMLIKLAR & FRI
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Qora / Sutli Kofe</span><span class="item-price">6,000</span></li>
+                <li class="item"><span class="item-name">Cola/Fanta/Sprite (0.25L)</span><span class="item-price">5,000</span></li>
+                <li class="item"><span class="item-name">Kartoshka Fri</span><span class="item-price">16,000</span></li>
+                <li class="item"><span class="item-name">Kók / Qora Choy</span><span class="item-price">5,000</span></li>
+            </ul>
+        </div>
+
+        <!-- LAVASH SET -->
+        <div class="card set-card">
+            <div class="card-title">
+                SET LAVASH
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Lavash 1x + Cola 0.25L</span><span class="item-price">SET</span></li>
+            </ul>
+        </div>
+
+        <!-- CHIZBURGER SET -->
+        <div class="card set-card">
+            <div class="card-title">
+                SET CHIZBURGER
+            </div>
+            <ul class="item-list">
+                <li class="item"><span class="item-name">Chizburger 1x + Fri 1x + Cola</span><span class="item-price">SET</span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
