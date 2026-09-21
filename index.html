@@ -3,283 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Fast Food - NFS Menyusi</title>
-    <!-- NFS stili uchun poyga va neon uslubidagi shriftlar -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Teko:wght@600;700&display=swap" rel="stylesheet">
-
+    <title>BEST FRESH FOOD - Menyu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-
         body {
-            background-color: #0b0c10;
-            background-image:
-            radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.15), transparent 60%),
-            linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
-            color: #fff;
-            font-family: 'Teko', sans-serif;
-            padding: 20px;
+            background-color: #121212;
+            color: #ffffff;
+            padding-bottom: 40px;
+        }
+        header {
+            background: linear-gradient(135deg, #ff4b1f, #ff9068);
+            text-align: center;
+            padding: 30px 15px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 15px rgba(255, 75, 31, 0.3);
+        }
+        header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
-
-        /* Sarlavha qismi */
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            transform: skewX(-10deg);
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
         }
-
-        .header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            color: #fff;
-            text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 40px #ff0055;
-            letter-spacing: 3px;
+        .container {
+            max-width: 600px;
+            margin: 20px auto 0;
+            padding: 0 15px;
         }
-
-        .header p {
-            font-size: 1.8rem;
-            color: #00f0ff;
-            text-shadow: 0 0 10px #00f0ff;
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 25px 0 15px;
+            color: #ff9068;
+            border-left: 4px solid #ff4b1f;
+            padding-left: 10px;
         }
-
-        /* Menyular tarmog'i */
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* NFS uslubidagi bloklar */
-        .card {
-            background: rgba(20, 24, 33, 0.85);
-            border: 2px solid #ff0055;
-            border-left: 6px solid #00f0ff;
-            padding: 15px;
-            transform: skewX(-6deg);
-            transition: all 0.2s ease-in-out;
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
-            position: relative;
+        .menu-card {
+            background-color: #1e1e1e;
+            border-radius: 16px;
             overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
         }
-
-        .card:hover {
-            transform: skewX(-6deg) scale(1.03);
-            border-color: #00f0ff;
-            border-left-color: #ff0055;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-            background: rgba(30, 36, 50, 0.95);
+        .menu-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
         }
-
+        .card-details {
+            padding: 15px;
+        }
         .card-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
             color: #fff;
-            background: linear-gradient(90deg, #ff0055, transparent);
-            padding: 5px 10px;
-            margin-bottom: 12px;
-            clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
         }
-
-        .item-list {
+        .price-list {
             list-style: none;
         }
-
-        .item {
+        .price-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 6px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            border-bottom: 1px dashed #333;
+            font-size: 14px;
         }
-
-        .item:last-child {
+        .price-item:last-child {
             border-bottom: none;
         }
-
-        .item-name {
-            color: #e0e0e0;
+        .price-name {
+            color: #ccc;
         }
-
-        .item-price {
-            color: #00f0ff;
-            font-weight: bold;
-            font-size: 1.5rem;
-            text-shadow: 0 0 5px #00f0ff;
+        .price-value {
+            font-weight: 600;
+            color: #2ec4b6;
         }
-
-        /* Set (To'plam) kartochkalari */
-        .card.set-card {
-            border-color: #ffbd00;
-            border-left-color: #ff0055;
-        }
-
-        .card.set-card .card-title {
-            background: linear-gradient(90deg, #ffbd00, transparent);
-            color: #000;
-        }
-
-        .card.set-card .item-price {
-            color: #ffbd00;
-            text-shadow: 0 0 5px #ffbd00;
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>FRESH FAST FOOD</h1>
-        <p>
-            NEED FOR SPEED EDITION
-        </p>
+    <header>
+        <h1>BEST FRESH FOOD</h1>
+        <p>Maza va sifat uyg'unligi!</p>
+    </header>
+
+    <div class="container">
+
+        <!-- FAST FOOD -->
+        <div class="category-title">Fast Food</div>
+
+        <!-- Club Sandwich -->
+        <div class="menu-card">
+            <img src="IMG_3224.png" alt="Klab Sendvich">
+            <div class="card-details">
+                <div class="card-title">Klab Sendvich</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Standart</span><span class="price-value">38.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Haggi -->
+        <div class="menu-card">
+            <img src="IMG_3240.jpeg" alt="Xaggi">
+            <div class="card-details">
+                <div class="card-title">Xaggi</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Oddiy</span><span class="price-value">40.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Sirli</span><span class="price-value">45.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Salatli Hot-Dog -->
+        <div class="menu-card">
+            <img src="IMG_3236.jpeg" alt="Salatli Xod-dok">
+            <div class="card-details">
+                <div class="card-title">Salatli Xod-dok</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">15.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Sredni</span><span class="price-value">20.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big</span><span class="price-value">30.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Hot-Dog Myasom -->
+        <div class="menu-card">
+            <img src="IMG_3241.jpeg" alt="Xod-dok Myasom">
+            <div class="card-details">
+                <div class="card-title">Xod-dok Myasom</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">20.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Koralevski</span><span class="price-value">25.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big</span><span class="price-value">35.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Hot-Dog Kabob -->
+        <div class="menu-card">
+            <img src="IMG_3180.jpeg" alt="Xot-dok Kabob">
+            <div class="card-details">
+                <div class="card-title">Xot-dok Kabob</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">26.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Koralevski</span><span class="price-value">38.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Hot-Dog Fresh -->
+        <div class="menu-card">
+            <img src="IMG_3178.jpeg" alt="Xod-dok Fresh">
+            <div class="card-details">
+                <div class="card-title">Xod-dok Fresh</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">17.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big Obichni</span><span class="price-value">20.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Mini Sirli</span><span class="price-value">22.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big Sirli</span><span class="price-value">25.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kuriniy Hot-Dog -->
+        <div class="menu-card">
+            <img src="IMG_3177.jpeg" alt="Kurini Xot-dok">
+            <div class="card-details">
+                <div class="card-title">Kurini Xot-dok</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">25.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Koralevski</span><span class="price-value">35.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BURGERS -->
+        <div class="category-title">Burgerlar</div>
+
+        <!-- Double Cheeseburger -->
+        <div class="menu-card">
+            <img src="IMG_3243.png" alt="Double Cheeseburger">
+            <div class="card-details">
+                <div class="card-title">Double Cheeseburger</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Standart</span><span class="price-value">45.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cheeseburger -->
+        <div class="menu-card">
+            <img src="IMG_3246.png" alt="Cheeseburger">
+            <div class="card-details">
+                <div class="card-title">Cheeseburger</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Standart</span><span class="price-value">35.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Gamburger -->
+        <div class="menu-card">
+            <img src="IMG_3195.png" alt="Gamburger">
+            <div class="card-details">
+                <div class="card-title">Gamburger</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Standart</span><span class="price-value">30.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Double Gamburger -->
+        <div class="menu-card">
+            <img src="IMG_3182.jpeg" alt="Double Gamburger">
+            <div class="card-details">
+                <div class="card-title">Double Gamburger</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Standart</span><span class="price-value">40.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LAVASH & DONAR -->
+        <div class="category-title">Lavash va Donar</div>
+
+        <!-- Lavash Mol Goshtli -->
+        <div class="menu-card">
+            <img src="IMG_3176.jpeg" alt="Lavash Mol Go'shtli">
+            <div class="card-details">
+                <div class="card-title">Lavash Mol Go'shtli</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">30.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big</span><span class="price-value">35.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Mini Sirli</span><span class="price-value">35.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big Sirli</span><span class="price-value">40.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lavash Tovuqli -->
+        <div class="menu-card">
+            <img src="IMG_3185.jpeg" alt="Lavash Tovuqli">
+            <div class="card-details">
+                <div class="card-title">Lavash Tovuqli</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">30.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Big</span><span class="price-value">35.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Donar -->
+        <div class="menu-card">
+            <img src="IMG_3154.jpeg" alt="Donar">
+            <div class="card-details">
+                <div class="card-title">Donar</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Mini</span><span class="price-value">30.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Koralevski</span><span class="price-value">35.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="category-title">Ichimliklar</div>
+
+        <!-- Drinks 0.5L -->
+        <div class="menu-card">
+            <img src="IMG_3181.jpeg" alt="Ichimliklar 0.5L">
+            <div class="card-details">
+                <div class="card-title">Boshqa ichimliklar (0.5 L)</div>
+                <ul class="price-list">
+                    <li class="price-item"><span class="price-name">Coca-Cola 0.5L</span><span class="price-value">8.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Fanta 0.5L</span><span class="price-value">8.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Fuse Tea 0.5L</span><span class="price-value">8.000 so'm</span></li>
+                    <li class="price-item"><span class="price-name">Pepsi 0.5L</span><span class="price-value">8.000 so'm</span></li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
-    <div class="menu-container">
-
-        <!-- SALATLI HOT-DOG -->
-        <div class="card">
-            <div class="card-title">
-                SALATLI HOT-DOG
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Kichik</span><span class="item-price">15,000</span></li>
-                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">20,000</span></li>
-                <li class="item"><span class="item-name">Katta (Big)</span><span class="item-price">30,000</span></li>
-            </ul>
-        </div>
-
-        <!-- TOVUQLI HOT-DOG -->
-        <div class="card">
-            <div class="card-title">
-                TOVUQLI HOT-DOG
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Kichik</span><span class="item-price">25,000</span></li>
-                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">35,000</span></li>
-            </ul>
-        </div>
-
-        <!-- GO'SHTLI HOT-DOG -->
-        <div class="card">
-            <div class="card-title">
-                GO'SHTLI HOT-DOG
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Kichik</span><span class="item-price">20,000</span></li>
-                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">25,000</span></li>
-                <li class="item"><span class="item-name">Katta (Big)</span><span class="item-price">35,000</span></li>
-            </ul>
-        </div>
-
-        <!-- DONAR -->
-        <div class="card">
-            <div class="card-title">
-                DONAR
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Oddiy</span><span class="item-price">30,000</span></li>
-                <li class="item"><span class="item-name">Qirollik</span><span class="item-price">35,000</span></li>
-            </ul>
-        </div>
-
-        <!-- XAGGI -->
-        <div class="card">
-            <div class="card-title">
-                XAGGI
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Oddiy</span><span class="item-price">40,000</span></li>
-            </ul>
-        </div>
-
-        <!-- BURGERLAR -->
-        <div class="card">
-            <div class="card-title">
-                GAMBURGERLAR
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Gamburger</span><span class="item-price">30,000</span></li>
-                <li class="item"><span class="item-name">Dabl Gamburger</span><span class="item-price">40,000</span></li>
-                <li class="item"><span class="item-name">Chizburger</span><span class="item-price">35,000</span></li>
-                <li class="item"><span class="item-name">Dabl Chizburger</span><span class="item-price">45,000</span></li>
-            </ul>
-        </div>
-
-        <!-- GO'SHTLI LAVASH -->
-        <div class="card">
-            <div class="card-title">
-                GO'SHTLI LAVASH
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Mini Go'shtli</span><span class="item-price">30,000</span></li>
-                <li class="item"><span class="item-name">Big Go'shtli</span><span class="item-price">35,000</span></li>
-                <li class="item"><span class="item-name">Mini Pishloqli</span><span class="item-price">35,000</span></li>
-                <li class="item"><span class="item-name">Big Pishloqli</span><span class="item-price">40,000</span></li>
-            </ul>
-        </div>
-
-        <!-- TOVUQLI LAVASH -->
-        <div class="card">
-            <div class="card-title">
-                TOVUQLI LAVASH
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Mini Tovuqli</span><span class="item-price">30,000</span></li>
-                <li class="item"><span class="item-name">Big Tovuqli</span><span class="item-price">35,000</span></li>
-            </ul>
-        </div>
-
-        <!-- KLAB SENDVICH -->
-        <div class="card">
-            <div class="card-title">
-                KLAB SENDVICH
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Oddiy</span><span class="item-price">38,000</span></li>
-            </ul>
-        </div>
-
-        <!-- ICHIMLIKLAR VA FRI -->
-        <div class="card">
-            <div class="card-title">
-                ICHIMLIKLAR & FRI
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Qora / Sutli Kofe</span><span class="item-price">6,000</span></li>
-                <li class="item"><span class="item-name">Cola/Fanta/Sprite (0.25L)</span><span class="item-price">5,000</span></li>
-                <li class="item"><span class="item-name">Kartoshka Fri</span><span class="item-price">16,000</span></li>
-                <li class="item"><span class="item-name">Kók / Qora Choy</span><span class="item-price">5,000</span></li>
-            </ul>
-        </div>
-
-        <!-- LAVASH SET -->
-        <div class="card set-card">
-            <div class="card-title">
-                SET LAVASH
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Lavash 1x + Cola 0.25L</span><span class="item-price">SET</span></li>
-            </ul>
-        </div>
-
-        <!-- CHIZBURGER SET -->
-        <div class="card set-card">
-            <div class="card-title">
-                SET CHIZBURGER
-            </div>
-            <ul class="item-list">
-                <li class="item"><span class="item-name">Chizburger 1x + Fri 1x + Cola</span><span class="item-price">SET</span></li>
-            </ul>
-        </div>
-
-    </div>
+    <footer>
+        &copy; 2026 BEST FRESH FOOD. Barcha huquqlar saqlanadi.
+    </footer>
 
 </body>
 </html>
